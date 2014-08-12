@@ -28,5 +28,5 @@ deploy:
     bucket: seq-android-binaries
     upload-dir: qa
     on:
-        branch: all
+        branch: master
     region: us-west-2
