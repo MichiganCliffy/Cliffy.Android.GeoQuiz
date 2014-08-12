@@ -27,7 +27,7 @@ deploy:
   secret_access_key:
     secure: ZjfG2wqHx4EgoMZ4cR116tI7KjRxQA9XaTnhylo4jw9bUtRXzZGGyAa0k7sYODO8mGh9jx6pXiXEzfTX9JFKodeI8cMW7WgIsLdJPkPSDR4ouep0njk7Kf/ln1OBcIa499uNZtkOizVXvsFNXRmT8Lmw9vHE9Qi7qalyG35jzbM=
   bucket: seq-android-binaries
-  upload-dir: qa
+  upload-dir: qa/cliffy-android-geoquiz
   local-dir: app/build/outputs/apk
   on:
     branch: master
