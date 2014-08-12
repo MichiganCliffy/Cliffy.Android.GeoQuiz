@@ -20,3 +20,13 @@ before_script:
   - emulator -avd test -no-skin -no-audio -no-window &
   - adb wait-for-device
   - adb shell input keyevent 82 &
+
+deploy:
+    provider: s3
+    access_key_id: AKIAIBBGKA3NPYIBCAIA
+    secret_access_key: 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
+    bucket: seq-android-binaries
+    upload-dir: qa
+    on:
+        branch: all
+    region: us-west-2
