@@ -21,6 +21,11 @@ before_script:
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
+before_deploy:
+  - DATE=$(date +"%Y%m%d%H%M%S")
+  - mkdir ./app/build/outputs/apk/$DATE
+  - mv ./app/build/outputs/apk/*.apk ./app/build/outputs/apk/$DATE
+  
 deploy:
     provider: s3
     access_key_id: AKIAIBBGKA3NPYIBCAIA
