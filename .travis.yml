@@ -23,9 +23,9 @@ before_deploy:
 - mv ./app/build/outputs/apk/*.apk ./app/build/outputs/apk/$DATE
 deploy:
   provider: s3
-  access_key_id: AKIAIBBGKA3NPYIBCAIA
+  access_key_id: AKIAI4VIICLJVGBXUWKQ
   secret_access_key:
-    secure: IDpKjBkL7j5tXEHwjQwpmiMLEqz005MwOcSpHdlqka9zHI2RlLy1n5cfbsWcR6eBv5A6aYvliJ4Uyz5q3+dbKzzPVmas3F3a8OcX3tSKUn1ik8k6fb7myAB90tSi19RvcJZg7uXkIxMMaV916k+bFUn3oIPIZUIvK27gSgnV0Bw=
+    secure: ZjfG2wqHx4EgoMZ4cR116tI7KjRxQA9XaTnhylo4jw9bUtRXzZGGyAa0k7sYODO8mGh9jx6pXiXEzfTX9JFKodeI8cMW7WgIsLdJPkPSDR4ouep0njk7Kf/ln1OBcIa499uNZtkOizVXvsFNXRmT8Lmw9vHE9Qi7qalyG35jzbM=
   bucket: seq-android-binaries
   upload-dir: qa
   local-dir: app/build/outputs/apk
