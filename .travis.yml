@@ -8,19 +8,20 @@ android:
   - add-on
   - android-20
   - build-tools-20.0.0
-branches:
-  only:
-  - master
-  - release
+#branches:
+#  only:
+#  - master
+#  - release
 before_script:
-- echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
-- emulator -avd test -no-skin -no-audio -no-window &
-- adb wait-for-device
-- adb shell input keyevent 82 &
+  - sudo gem install calabash-android
+  - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - adb wait-for-device
+  - adb shell input keyevent 82 &
 before_deploy:
-- DATE=$(date +"%Y%m%d%H%M%S")
-- mkdir ./app/build/outputs/apk/$DATE
-- mv ./app/build/outputs/apk/*.apk ./app/build/outputs/apk/$DATE
+  - DATE=$(date +"%Y%m%d%H%M%S")
+  - mkdir ./app/build/outputs/apk/$DATE
+  - mv ./app/build/outputs/apk/*.apk ./app/build/outputs/apk/$DATE
 deploy:
   provider: s3
   access_key_id: AKIAI4VIICLJVGBXUWKQ
