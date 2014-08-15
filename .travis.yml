@@ -13,8 +13,8 @@ android:
 #  - master
 #  - release
 before_script:
-  - sudo apt-get install ruby1.9.1
-  - sudo apt-get install ruby1.9.1-dev
+  - sudo apt-get install -y ruby1.9.1
+  - sudo apt-get install -y ruby1.9.1-dev
   - sudo gem install rspec
   - sudo gem install calabash-android
   - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
