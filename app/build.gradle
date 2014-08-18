@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'appthwack'
 
 android {
     compileSdkVersion 20
@@ -20,6 +21,11 @@ android {
     lintOptions {
         abortOnError false
     }
+}
+
+appthwack {
+    apiKey='RbOuWmTbfwRxeNaPTpw6qS915t4ujIPCVE3BLPcr'
+    project='GeoQuiz Sample'
 }
 
 dependencies {
