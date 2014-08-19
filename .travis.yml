@@ -8,10 +8,10 @@ android:
   - add-on
   - android-20
   - build-tools-20.0.0
-#branches:
-#  only:
-#  - master
-#  - release
+branches:
+  only:
+  - master
+  - release
 before_script:
 #  - sudo apt-get install -y ruby1.9.1
 #  - sudo apt-get install -y ruby1.9.1-dev
@@ -24,18 +24,19 @@ before_script:
 script:
   - ./gradlew build appthwackUpload
 #before_deploy:
-#  - DATE=$(date +"%Y%m%d%H%M%S")
-#  - mkdir ./app/build/outputs/apk/$DATE
-#  - mv ./app/build/outputs/apk/*.apk ./app/build/outputs/apk/$DATE
+  - DATE=$(date +"%Y%m%d%H%M%S")
+  - mkdir ./app/build/outputs/apk/deploy
+  - mkdir ./app/build/outputs/apk/deploy/$DATE
+  - cp ./app/build/outputs/apk/*.apk ./app/build/outputs/apk/deploy/$DATE
 #deploy:
-#  provider: s3
-#  access_key_id: AKIAI4VIICLJVGBXUWKQ
-#  secret_access_key:
-#    secure: ZjfG2wqHx4EgoMZ4cR116tI7KjRxQA9XaTnhylo4jw9bUtRXzZGGyAa0k7sYODO8mGh9jx6pXiXEzfTX9JFKodeI8cMW7WgIsLdJPkPSDR4ouep0njk7Kf/ln1OBcIa499uNZtkOizVXvsFNXRmT8Lmw9vHE9Qi7qalyG35jzbM=
-#  bucket: seq-android-binaries
-#  upload-dir: qa/cliffy-android-geoquiz
-#  local-dir: app/build/outputs/apk
-#  on:
-#    branch: master
-#  region: us-west-2
-#  skip_cleanup: true
+  provider: s3
+  access_key_id: AKIAI4VIICLJVGBXUWKQ
+  secret_access_key:
+    secure: ZjfG2wqHx4EgoMZ4cR116tI7KjRxQA9XaTnhylo4jw9bUtRXzZGGyAa0k7sYODO8mGh9jx6pXiXEzfTX9JFKodeI8cMW7WgIsLdJPkPSDR4ouep0njk7Kf/ln1OBcIa499uNZtkOizVXvsFNXRmT8Lmw9vHE9Qi7qalyG35jzbM=
+  bucket: seq-android-binaries
+  upload-dir: qa/cliffy-android-geoquiz
+  local-dir: app/build/outputs/apk/deploy
+  on:
+    branch: master
+  region: us-west-2
+  skip_cleanup: true
